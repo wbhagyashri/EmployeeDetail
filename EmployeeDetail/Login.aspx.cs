@@ -24,6 +24,7 @@ namespace EmployeeAccess
             try
             {
                 string otpstr = GenerateOTP();
+                //string otpstr = "123456";
                 sendSms(mobielNo.Text, otpstr);
                 Session["otpstr"] = otpstr;
                 Session["mobileNo"] = mobielNo.Text;
@@ -57,7 +58,7 @@ namespace EmployeeAccess
         {
             try
             {
-                string strUrl = "http://control.msg91.com/api/sendotp.php?otp_length=4&authkey=346074AJVQCfwXrm7M5f9ea7f9P1&message=&sender=TEST&mobile=" + mobileNo + "&otp=" + OTP + "";
+                string strUrl = "https://control.msg91.com/api/sendotp.php?otp_length=4&authkey=239148ARDpLEaCC2X5ba88dfa&message=&sender=CRAVEI&mobile=" + mobileNo + "&otp=" + OTP;
                 WebRequest request = HttpWebRequest.Create(strUrl);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream s = (Stream)response.GetResponseStream();
